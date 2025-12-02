@@ -4,9 +4,10 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "preview": "vite preview"
+    "dev": "vite",
+    "build": "vite build --debug",
+    "preview": "vite preview",
+    "vercel-build": "vite build --debug"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -21,5 +22,8 @@
     "typescript": "^5.6.3",
     "vite": "^5.4.8",
     "@vitejs/plugin-react-swc": "^3.7.1"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

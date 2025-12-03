@@ -50,7 +50,7 @@ function Navbar() {
         <a href="#inicio" onClick={handleScroll('inicio')} className="flex items-center gap-2 font-semibold tracking-tight text-slate-900 dark:text-slate-100">
           {logoOk ? (
             <img
-              src="/logo.svg"
+              src="/logo.png"
               alt="Yonnier Leon logo"
               className="h-6 w-6 rounded-md object-contain"
               onError={() => setLogoOk(false)}

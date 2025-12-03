@@ -48,8 +48,24 @@ function Projects() {
               Stack: {p.stack.join(' · ')}
             </div>
             <div className="mt-4 flex gap-3">
-              <a href={p.demo} className="btn btn-primary">Demo</a>
-              <a href={p.code} className="btn btn-outline">Código</a>
+              {p.name === 'Popayán Nocturna – Backend' && (
+                <>
+                  <button type="button" className="btn btn-primary" onClick={() => alert("La API sí está desplegada... pero no tiene vista 😅🧑‍💻")}>Demo</button>
+                  <a href="https://github.com/YonnierDev/popnocturna" target="_blank" rel="noreferrer" className="btn btn-outline">Código</a>
+                </>
+              )}
+              {p.name === 'Popayán Nocturna – React Frontend' && (
+                <>
+                  <a href="https://frontendpopa.vercel.app/" target="_blank" rel="noreferrer" className="btn btn-primary">Demo</a>
+                  <a href="https://github.com/YonnierDev/frontendpopa" target="_blank" rel="noreferrer" className="btn btn-outline">Código</a>
+                </>
+              )}
+              {p.name === 'Red Sentinel – Full Stack con IA' && (
+                <>
+                  <button type="button" className="btn btn-primary" onClick={() => alert('Ups... aún no tenemos este proyecto desplegado 😅')}>Demo</button>
+                  <a href="https://github.com/YonnierDev/red-sentinel" target="_blank" rel="noreferrer" className="btn btn-outline">Código</a>
+                </>
+              )}
             </div>
           </div>
         ))}

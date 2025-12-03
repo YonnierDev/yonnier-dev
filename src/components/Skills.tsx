@@ -1,12 +1,10 @@
 import React from 'react'
 
 const skills = [
-  { name: 'HTML', level: 'Avanzado', desc: 'Semántica, accesibilidad, SEO base.' },
-  { name: 'CSS', level: 'Avanzado', desc: 'Flexbox, Grid, responsive, Tailwind.' },
-  { name: 'JavaScript', level: 'Avanzado', desc: 'ES6+, asincronía, testing.' },
-  { name: 'TypeScript', level: 'Intermedio/Avanzado', desc: 'Tipos, generics, buenas prácticas.' },
-  { name: 'React', level: 'Avanzado', desc: 'Hooks, context, performance, SPA.' },
-  { name: 'Git', level: 'Intermedio', desc: 'Flujos git, PRs, CI/CD básico.' },
+  { name: 'Backend', level: 'Stack principal', desc: 'Node.js · Express.js · FastAPI · JWT · APIs REST · MySQL / PostgreSQL' },
+  { name: 'Frontend', level: 'UI y SPA', desc: 'React 18 · JavaScript · HTML · CSS' },
+  { name: 'DevOps / Deployment', level: 'Infra y despliegue', desc: 'Docker · Vercel · Railway' },
+  { name: 'Otros', level: 'Herramientas y soporte', desc: 'Soporte técnico · Git / GitHub · Postman' },
 ]
 
 function Skills() {

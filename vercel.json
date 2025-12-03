@@ -1,4 +1,12 @@
 {
-  "buildCommand": "npm run vercel-build",
-  "outputDirectory": "dist"
+  "builds": [
+    {
+      "src": "vite.config.ts",
+      "use": "@vercel/static-build",
+      "config": {
+        "buildCommand": "npm run build",
+        "distDir": "dist"
+      }
+    }
+  ]
 }

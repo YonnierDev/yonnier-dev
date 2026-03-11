@@ -17,6 +17,7 @@ function Navbar() {
   })
   const [scrolled, setScrolled] = useState(false)
   const [logoOk, setLogoOk] = useState(true)
+  const [activeSection, setActiveSection] = useState('inicio')
 
   useEffect(() => {
     const root = document.documentElement
@@ -36,6 +37,21 @@ function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    const observers: IntersectionObserver[] = []
+    sections.forEach(({ id }) => {
+      const el = document.getElementById(id)
+      if (!el) return
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id) },
+        { rootMargin: '-40% 0px -55% 0px' }
+      )
+      obs.observe(el)
+      observers.push(obs)
+    })
+    return () => observers.forEach(o => o.disconnect())
+  }, [])
+
   const handleScroll = (id: string) => (e: React.MouseEvent) => {
     e.preventDefault()
     const el = document.getElementById(id)
@@ -45,7 +61,7 @@ function Navbar() {
   }
 
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition shadow-sm ${scrolled ? 'backdrop-blur bg-white/70 dark:bg-slate-950/60' : 'bg-transparent'}`}>
+    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'backdrop-blur bg-white/80 dark:bg-slate-950/70 shadow-sm border-b border-slate-200/60 dark:border-slate-800/60' : 'bg-transparent'}`}>
       <nav className="section flex h-16 items-center justify-between">
         <a href="#inicio" onClick={handleScroll('inicio')} className="flex items-center gap-2 font-semibold tracking-tight text-slate-900 dark:text-slate-100">
           {logoOk ? (
@@ -60,18 +76,36 @@ function Navbar() {
           )}
           <span>Yonnier Leon</span>
         </a>
+
         <div className="hidden md:flex items-center gap-6 text-sm font-medium">
           {sections.map(s => (
-            <a key={s.id} href={`#${s.id}`} onClick={handleScroll(s.id)} className="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors">{s.label}</a>
+            <a
+              key={s.id}
+              href={`#${s.id}`}
+              onClick={handleScroll(s.id)}
+              className={`relative pb-0.5 transition-colors ${
+                activeSection === s.id
+                  ? 'text-primary-600 dark:text-primary-400'
+                  : 'text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white'
+              }`}
+            >
+              {s.label}
+              {activeSection === s.id && (
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-600 dark:bg-primary-400 rounded-full" />
+              )}
+            </a>
           ))}
         </div>
+
         <div className="flex items-center gap-2">
-          <button aria-label="Toggle theme" onClick={() => setDark(v => !v)} className="h-9 w-9 grid place-items-center rounded-md border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
-            {dark ? (
-              <span className="i">🌙</span>
-            ) : (
-              <span className="i">☀️</span>
-            )}
+          <button
+            aria-label="Cambiar tema"
+            aria-pressed={dark}
+            title="Cambiar tema"
+            onClick={() => setDark(v => !v)}
+            className="h-9 w-9 grid place-items-center rounded-md border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+          >
+            {dark ? '🌙' : '☀️'}
           </button>
         </div>
       </nav>

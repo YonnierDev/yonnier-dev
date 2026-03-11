@@ -81,18 +81,18 @@ function Hero() {
       <div className="mx-auto max-w-3xl text-center relative z-10 w-full">
         <Reveal delay={0}>
           <div className="mx-auto mb-8 flex justify-center">
-            <div className="float-anim glow-ring aspect-[16/9] w-56 sm:w-72 md:w-96 lg:w-[28rem] rounded-2xl overflow-hidden shadow-xl">
+            <div className="float-anim glow-ring aspect-[4/5] w-44 sm:w-56 md:w-72 rounded-2xl overflow-hidden shadow-xl">
               <img
                 src="/logodev.jpeg"
                 alt="Logo Yonnier Leon"
-                className="h-full w-full object-contain bg-transparent"
+                className="h-full w-full object-cover object-center"
               />
             </div>
           </div>
         </Reveal>
 
         <Reveal delay={80}>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4">
             Hola, soy <span className="gradient-text">Yonnier Leon</span>
           </h1>
         </Reveal>

@@ -55,7 +55,7 @@ function Contact() {
               href={c.href}
               target="_blank"
               rel="noreferrer"
-              className="card p-6 flex flex-col items-center gap-3 text-center group no-underline"
+              className="card p-6 flex flex-col items-center gap-3 text-center group no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
             >
               <div
                 className="h-12 w-12 grid place-items-center rounded-full text-white transition-transform duration-200 group-hover:scale-110 shadow-md"

@@ -56,10 +56,10 @@ function Projects() {
               </div>
               <div className="mt-4 flex gap-3">
                 {p.demo && (
-                  <a href={p.demo} target="_blank" rel="noreferrer" className="btn btn-primary">Demo</a>
+                  <a href={p.demo} target="_blank" rel="noreferrer" className="btn btn-primary focus-visible:ring-primary-400">Demo</a>
                 )}
                 {p.code && (
-                  <a href={p.code} target="_blank" rel="noreferrer" className="btn btn-outline">Código</a>
+                  <a href={p.code} target="_blank" rel="noreferrer" className="btn btn-outline focus-visible:ring-slate-400">Código</a>
                 )}
                 {!p.demo && !p.code && (
                   <span className="text-xs text-slate-500">Pronto</span>
